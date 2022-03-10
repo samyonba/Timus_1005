@@ -31,7 +31,7 @@ int main()
 
     
 
-    for (size_t i = 0; i < pow(2, n); i++)
+    for (size_t i = 1; i < pow(2, n) - 1; i++)
     {
         bitset<20> mask{ i };
         
@@ -46,6 +46,11 @@ int main()
         }
 
         int local_difference = abs(total - 2 * local_sum);
+        if (local_difference == 0)
+        {
+            cout << 0 << endl;
+            return 0;
+        }
         if (local_difference < min_difference)
         {
             min_difference = local_difference;
